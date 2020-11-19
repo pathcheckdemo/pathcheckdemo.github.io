@@ -8,12 +8,12 @@
 # Site settings
 title: Lagrangian
 subtitle: Musings of a Math addict
-email: nilayshrivastava1729@gmail.com
+email: ayush.medialab@gmail.com
 description: Machine Learning, Computer Science, Quantum Computing, Mathematics
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://euler16.github.io" # the base hostname & protocol for your site
+url: "http://pathcheckdemo.github.io" # the base hostname & protocol for your site
 twitter_username: NilayShri
-github_username:  euler16
+github_username:  pathcheckdemo
 facebook_username: nilay.shrivastava.1729
 linkedin_username: nilayshrivastava1729
 paginate: 6
