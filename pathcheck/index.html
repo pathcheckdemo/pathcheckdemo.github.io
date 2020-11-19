@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <!-- navbaar -->
+    <nav style="width: 100%;">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo right">Covid Analysis</a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a id="select-state">Statewise Visualization</a></li>
+            <li><a id="select-symptom">Symptom Relations</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    <div id="state">
+        <form>
+            <div class="fieldset" id="gender">
+                <h5>Gender &nbsp;</h5>
+                <label>
+                    <input class="with-gap" name="group1" type="radio" checked id="overall"/>
+                    <span>Overall &nbsp;</span>
+                </label>
+                
+                
+                <label>
+                    <input class="with-gap" name="group1" type="radio" id="female"/>
+                    <span>Female &nbsp;</span>
+                </label>
+                
+                
+                <label>
+                    <input class="with-gap" name="group1" type="radio"  id="male"/>
+                    <span>Male &nbsp;</span>
+                </label>
+                
+            </div>
+            &nbsp; &nbsp;
+            <div class="fieldset" id="age">
+                <h5>Age &nbsp;</h5>
+                
+                <label>
+                    <input name="group2" class="with-gap" type="radio" checked id="a18"/>
+                    <span>18-34 &nbsp;</span>
+                </label>
+                
+                
+                    <label>
+                    <input name="group2" class="with-gap" type="radio" id="a35"/>
+                    <span>35-54 &nbsp;</span>
+                    </label>
+                
+                
+                    <label>
+                    <input name="group2" class="with-gap" type="radio" id="a55"/>
+                    <span>55+ &nbsp;</span>
+                    </label>
+                
+                </div>
+        </form>
+        <br>
+        <a class="waves-effect waves-light btn" id="vizBtn">Display</a>
+
+        <div class="row">
+            <div class="col s8" id="mapBox">
+                <h4>Latest CLI distribution in US</h4>
+                <div id="map"></div>
+            </div>
+            <div class="col s4" id="graph">
+                <h4 id="line-heading"> CLI vs time</h4>
+                <canvas id="line" width="300" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- pie chart is static -->
+    <div id="symptom" style="display:none;">
+        <div class="row">
+            <div class="col s6" id="piebox">
+                <h4>f-statistics</h4>
+                <canvas id="piechart"></canvas>
+            </div>
+            <div class="col s6" id="correlationBox">
+                <h4>Correlation between Symptoms</h4>
+                <div id="correlation graph" class="graph-container"></div>
+                <div id="description">
+                    <li>Thickness of edges is proportional to pearson correlation</li>
+                    <li>Symptoms are colored according to type</li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script> -->
+<script src="libs/d3.v4.min.js"></script>
+<script src="https://d3js.org/queue.v1.min.js"></script>
+<script src="d3-legend.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<!-- <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+<!-- for correlation graph -->
+<!-- <script src='libs/d3.v4.min.js'></script> -->
+<script src='libs/babel.min.js'></script>
+<script src='libs/jLouvain.js'></script>
+<script src='libs/lodash.js'></script>
+<script src='correlation-graph.js'></script>
+
+<script src="data/state.js"></script>
+<!-- for correlations -->
+<script src="data/data.js"></script> 
+<!-- for line graphs -->
+<script src="data/lineData.js"></script>
+
+<script src="map.js"></script>
+<script src="line.js"></script>
+<script src="viz.js"></script>
+</body>
+</html>
