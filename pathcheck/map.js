@@ -43,6 +43,10 @@ function display(filename, colorRange) {
 
     var countryById = d3.map();
 
+    console.log("----- FILENAME --------")
+    console.log(filename)
+    console.log("----------------------")
+
     // we use queue because we have 2 data files to load.
     queue()
         .defer(d3.json, "USA.json")
